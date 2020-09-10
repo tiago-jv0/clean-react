@@ -18,6 +18,6 @@
         "@typescript-eslint/camelcase": "off",
         "@typescript-eslint/method-signature-style": "off",
         "react/jsx-uses-react": "error",
-        "react/jsx-uses-var": "error"
+        "react/jsx-uses-vars": "error"
     }
 }
