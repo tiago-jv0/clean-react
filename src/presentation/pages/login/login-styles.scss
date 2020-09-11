@@ -1,8 +1,7 @@
-@import '../../styles/colors.scss';
-
+@import "../../styles/colors.scss";
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14;
     padding: 0;
     margin: 0;
@@ -10,7 +9,7 @@
 }
 
 body {
-    background-color:$background;
+    background-color: $background;
 }
 
 input[type="password"],
@@ -41,44 +40,21 @@ button {
         opacity: 0.9;
         cursor: pointer;
     }
-
 }
- 
+
 .login {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    ;
     height: 100vh;
 
-    .header {
-        background-color: $primary;
-
-        border-top: 40px solid $primaryDark;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        img {
-            margin-top: 40px;;
-        }
-        
-        h1 {
-            color: white;
-
-            margin: 16px 0px 40px;
-        }
-    }
-    
     .form {
         display: flex;
         flex-direction: column;
         align-self: center;
 
-        width: 400px;;
-        padding : 40px;
+        width: 400px;
+        padding: 40px;
 
         background-color: $white;
 
@@ -130,7 +106,6 @@ button {
         }
 
         .errorWrap {
-
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -145,9 +120,4 @@ button {
             }
         }
     }
-    
-    .footer {
-        background-color: $primary;;
-    }
 }
-
