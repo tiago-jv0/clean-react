@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import '../../styles/colors.scss';
 
 * {
     font-family: "Roboto", sans-serif;
@@ -70,24 +70,7 @@ button {
             font-size: 20px;
         }
 
-        .inputWrap {
-            margin-top: 16px;
-
-            display: flex;
-            align-items: center;
-            position: relative;
-
-            input {
-                flex-grow: 1;
-            }
-
-            .status {
-                position: absolute;
-                right: 8px;
-                font-size: 12px;
-                cursor: help;
-            }
-        }
+       
 
         .submit {
             margin-top: 32px;
