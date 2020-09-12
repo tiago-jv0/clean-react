@@ -11,5 +11,13 @@ describe('', () => {
 
     const submitButton = getByTestId('submit') as HTMLButtonElement
     expect(submitButton.disabled).toBe(true)
+
+    const emailStatus = getByTestId('email-status') as HTMLInputElement
+    expect(emailStatus.title).toBe('Campo Obrigatório')
+    expect(emailStatus.textContent).toBe('🔴')
+
+    const passwordStatus = getByTestId('password-status') as HTMLInputElement
+    expect(passwordStatus.title).toBe('Campo Obrigatório')
+    expect(passwordStatus.textContent).toBe('🔴')
   })
 })
