@@ -40,7 +40,7 @@ describe('', () => {
     expect(emailStatus.textContent).toBe('🔴')
 
     const passwordStatus = sut.getByTestId('password-status') as HTMLInputElement
-    expect(passwordStatus.title).toBe('Campo Obrigatório')
+    expect(passwordStatus.title).toBe(validationSpy.errorMessage)
     expect(passwordStatus.textContent).toBe('🔴')
   })
 
@@ -69,5 +69,14 @@ describe('', () => {
     const emailStatus = sut.getByTestId('email-status')
     expect(emailStatus.title).toBe(validationSpy.errorMessage)
     expect(emailStatus.textContent).toBe('🔴')
+  })
+
+  test('should show password error if validation fails', () => {
+    const { sut, validationSpy } = makeSut()
+    const passwordInput = sut.getByTestId('password')
+    fireEvent.input(passwordInput, { target: { value: faker.internet.password() } })
+    const passwordStatus = sut.getByTestId('password-status')
+    expect(passwordStatus.title).toBe(validationSpy.errorMessage)
+    expect(passwordStatus.textContent).toBe('🔴')
   })
 })
