@@ -136,7 +136,7 @@ describe('Login Page ', () => {
     expect(spinner).toBeTruthy()
   })
 
-  test('should callauthentication with correct values', () => {
+  test('should call authentication with correct values', () => {
     const { sut, authenticationSpy } = makeSut()
     const email = faker.internet.email()
     const password = faker.internet.password()
@@ -145,5 +145,12 @@ describe('Login Page ', () => {
       email,
       password
     })
+  })
+
+  test('should call authentication only once', () => {
+    const { sut, authenticationSpy } = makeSut()
+    simulateValidSubmit(sut)
+    simulateValidSubmit(sut)
+    expect(authenticationSpy.callsCount).toBe(1)
   })
 })
