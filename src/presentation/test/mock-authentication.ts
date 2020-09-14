@@ -3,7 +3,7 @@ import { AccountModel } from '@/domain/models'
 import { mockAccountModel } from '@/domain/test'
 
 export class AuthenticationSpy implements Authentication {
-  private readonly account: AccountModel = mockAccountModel()
+  public account: AccountModel = mockAccountModel()
   public params: AuthenticationParams
   public callsCount: number = 0
   async auth (params: AuthenticationParams): Promise<AccountModel> {

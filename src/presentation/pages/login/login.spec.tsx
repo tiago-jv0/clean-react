@@ -8,6 +8,8 @@ import Login from './login'
 
 import faker from 'faker'
 
+import 'jest-localstorage-mock'
+
 type SutTypes = {
   sut: RenderResult
   validationSpy: ValidationSpy
@@ -51,6 +53,10 @@ const simulateStatusForField = (sut: RenderResult, field: string, validaitonErro
 }
 
 describe('Login Page ', () => {
+  beforeEach(() => {
+    localStorage.clear()
+  })
+
   afterEach(cleanup)
 
   test('should start with initial state', () => {
@@ -180,5 +186,15 @@ describe('Login Page ', () => {
     expect(mainError.textContent).toBe(error.message)
 
     expect(errorWrap.childElementCount).toBe(1)
+  })
+
+  test('should add accessToken to localstorage on success', async () => {
+    const { sut, authenticationSpy } = makeSut()
+
+    simulateValidSubmit(sut)
+
+    await waitFor(() => sut.getByTestId('form'))
+
+    expect(localStorage.setItem).toHaveBeenCalledWith('accessToken', authenticationSpy.account.accessToken)
   })
 })
