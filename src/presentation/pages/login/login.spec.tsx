@@ -1,25 +1,11 @@
 import React from 'react'
 import { render, RenderResult, fireEvent, cleanup } from '@testing-library/react'
 
-import { ValidationSpy } from '@/presentation/test'
+import { AuthenticationSpy, ValidationSpy } from '@/presentation/test'
 
 import Login from './login'
 
-import { Authentication, AuthenticationParams } from '@/domain/usecases'
-import { AccountModel } from '@/domain/models'
-
 import faker from 'faker'
-import { mockAccountModel } from '@/domain/test'
-
-class AuthenticationSpy implements Authentication {
-  private readonly account: AccountModel = mockAccountModel()
-  params: AuthenticationParams
-  async auth (params: AuthenticationParams): Promise<AccountModel> {
-    this.params = params
-    return await Promise.resolve(this.account)
-  }
-}
-
 type SutTypes = {
   sut: RenderResult
   validationSpy: ValidationSpy
@@ -44,7 +30,7 @@ const makeSut = (params?: SutParams): SutTypes => {
   }
 }
 
-describe('', () => {
+describe('Login Page ', () => {
   afterEach(cleanup)
 
   test('should start with initial state', () => {
